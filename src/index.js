@@ -7,41 +7,39 @@ import AddToDoItem from './components/AddToDoItem';
 
 require('!style-loader!css-loader!sass-loader!./index.scss');
 
+
+
 class App extends React.Component {
   constructor () {
     super();
     this.state = {
-      todo: '',
-      todoList: [],
+      todo:{
+        text:'',
+        isCompleted:false
+      },
+      todoList: []
     }
     this.handleTodo = this.handleTodo.bind(this);
     this.onAddToClick = this.onAddToClick.bind(this);
+    this.toggleCompleted = this.toggleCompleted.bind(this);
   }
 
   handleTodo(event) {
-    // let newTodo = this.state.todo;
-    // newTodo = event.target.value;
-    // this.setState({todo: newTodo});
-    // console.log(event.target.value);
-    this.setState({todo: event.target.value});
+    this.setState({todo.text: event.target.value});
   }
 
   onAddToClick() {
     const todoList = this.state.todoList;
     console.log(todoList);
     todoList.push(this.state.todo);
-    this.setState({todoList, todo: ''});
+    this.setState({todoList, todo.text: ''});
     console.log(this.state.todo);
   }
-
-
-  // const namesList = this.state.namesList;
-  //   namesList.push(this.state.nameToAddToList);
-  //   this.setState({namesList, nameToAddToList: ''});
-  // onKeyPress = {this.prop.todolist.push(newTodo); 
-  // function onClick(event
-  // // onKeyPress
-  // // onKeyPressCapture
+  toggleCompleted() {
+    if (this.state.todo.isCompleted === true) {
+      this.state.todo.isCompleted = false;
+    } this.state.todo.isCompleted = true;
+  }
   render () {
     return (
       <section className="content-holder">
@@ -50,7 +48,7 @@ class App extends React.Component {
           <div className="list-holder">
             <AddToDoItem todo={this.state.todo} handleTodo={this.handleTodo} onAddToClick={this.onAddToClick}/>
           </div>
-          <DisplayToDoList todoList={this.state.todoList}/>
+          <DisplayToDoList toggleCompleted={this.state.todo.isCompleted} todoList={this.state.todoList}/>
         </div>
       </section>
     )

@@ -5,16 +5,14 @@ const AddToDoItem = (props) => {
     <div>
       <input
       type="text"
-      value={props.todo}
+      value={props.todo.text}
       onChange={props.handleTodo}
       placeholder="Enter Your To-Do Item"
     />
       <button onClick={props.onAddToClick}>Add To Do</button>
     </div>
-    
+
   )
 };
 
 export default AddToDoItem;
-
-      
