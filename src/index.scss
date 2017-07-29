@@ -1,2 +1,23 @@
 // global styles go in here. 
 // When you start writing styles for your individual components you'll have to start importing them
+
+body {
+  background: lightblue;
+}
+
+.content-holder {
+  width: 1170px;
+  margin: 0 auto;
+  border-style: solid;
+  border-color: cadetblue;
+  
+  h1 {
+      text-align: center;
+    }
+
+  .list-holder {
+    display: flex;
+    justify-content: center; 
+  }
+  
+}
